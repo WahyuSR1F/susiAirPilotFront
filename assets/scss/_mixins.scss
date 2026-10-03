@@ -1,0 +1,31 @@
+@use './tokens' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin card-surface {
+  background-color: $card;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  border: 1px solid rgba(14, 33, 56, 0.04);
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}

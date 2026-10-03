@@ -1,0 +1,92 @@
+@use './tokens' as *;
+@use './mixins' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: $font;
+  background-color: #E2E8F0;
+  color: $text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+#app, #__nuxt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: $app-max-width;
+  min-height: 100vh;
+  background-color: $bg;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 480px) {
+    box-shadow: none;
+  }
+}
+
+.page-content {
+  flex: 1;
+  padding-bottom: calc($bottom-nav-height + 24px + env(safe-area-inset-bottom, 0px));
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+  touch-action: manipulation;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Global utility classes
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.text-danger {
+  color: $danger;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-success {
+  color: $success;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}

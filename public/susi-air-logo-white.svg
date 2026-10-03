@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60">
+  <defs>
+    <linearGradient id="planeGradWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E63757"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#22C5E8"/>
+    </linearGradient>
+  </defs>
+  <!-- Wing & Aircraft Stylized Icon -->
+  <g transform="translate(4, 10)">
+    <path d="M 0 24 L 28 8 L 36 12 L 20 25 L 42 25 L 46 22 L 48 25 L 44 30 L 16 30 L 8 36 L 2 35 L 7 28 Z" fill="#FFFFFF" />
+    <path d="M 28 8 L 34 2 L 38 4 L 32 10 Z" fill="#E63757" />
+    <circle cx="36" cy="18" r="2.5" fill="#E63757"/>
+    <path d="M 12 33 L 38 33" stroke="url(#planeGradWhite)" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Brand text -->
+  <text x="64" y="29" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="1.5">SUSI AIR</text>
+  <text x="64" y="44" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="600" font-size="8.5" fill="#22C5E8" letter-spacing="2.8">PILOT OPERATIONS</text>
+</svg>
