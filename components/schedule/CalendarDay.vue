@@ -29,6 +29,16 @@ const hasDuty = computed(() => !!props.scheduleItem);
 const dutyColor = computed(() => props.scheduleItem?.base_color || 'transparent');
 const isDarkDuty = computed(() => (hasDuty.value ? isDarkColor(props.scheduleItem!.base_color) : false));
 
+// Brief: tick when count_logbooks equals count_schedules, otherwise show remaining duties
+const isCompleted = computed(() => {
+  const it = props.scheduleItem;
+  if (!it) return false;
+  if (typeof it.count_logbooks === 'number' && typeof it.count_schedules === 'number') {
+    return it.count_logbooks === it.count_schedules;
+  }
+  return !!it.completed;
+});
+
 const cellTextColor = computed(() => {
   if (!props.isCurrentMonth) return '#D1D5DB';
   if (hasDuty.value) {
@@ -72,9 +82,9 @@ function handleClick() {
       <!-- Duty Status: Checkmark if completed, otherwise remaining duty count -->
       <div
         class="duty-status-indicator"
-        :class="{ completed: scheduleItem.completed, remaining: !scheduleItem.completed }"
+        :class="{ completed: isCompleted, remaining: !isCompleted }"
       >
-        <Check v-if="scheduleItem.completed" :size="12" :stroke-width="3" />
+        <Check v-if="isCompleted" :size="12" :stroke-width="3" />
         <span v-else class="remaining-count">{{ scheduleItem.remaining }}</span>
       </div>
     </div>

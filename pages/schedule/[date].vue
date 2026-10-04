@@ -52,7 +52,15 @@ const legendItem = computed(() =>
   scheduleStore.legend.find(l => l.code === item.value?.duty_type) ?? null,
 );
 const dutyColor   = computed(() => item.value?.base_color ?? '#0E2138');
-const isCompleted = computed(() => item.value?.completed ?? false);
+// Tick sesuai brief: count_logbooks === count_schedules (fallback ke field API)
+const isCompleted = computed(() => {
+  const it = item.value;
+  if (!it) return false;
+  if (typeof it.count_logbooks === 'number' && typeof it.count_schedules === 'number') {
+    return it.count_logbooks === it.count_schedules;
+  }
+  return !!it.completed;
+});
 
 function goBack() {
   router.push('/schedule');
