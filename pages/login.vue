@@ -122,6 +122,14 @@ async function handleSubmit() {
 
     <footer class="login-footer">
       <p>© 2026 PT ASI Pudjiastuti Aviation. All rights reserved.</p>
+      <a
+        class="credit"
+        href="https://www.wahyusahrirhamadhan.web.id/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Wahyu Sahri Rhamadhan
+      </a>
     </footer>
   </div>
 </template>
@@ -309,5 +317,19 @@ async function handleSubmit() {
   text-align: center;
   font-size: 11px;
   color: $text-muted;
+
+  .credit {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: $navy;
+    text-decoration: none;
+    letter-spacing: -0.1px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
