@@ -17,9 +17,13 @@ export const useDocumentsStore = defineStore('documents', () => {
 
     try {
       const data = await apiFetch<DocumentsResponse>('/documents');
+      if (!data || !Array.isArray(data.items)) {
+        // Respons bukan JSON yang diharapkan (mis. HTML dari server yang salah)
+        throw new Error('Unexpected response from documents API');
+      }
       items.value = data.items;
-      today.value = data.today;
-      warningDays.value = data.warningDays;
+      if (data.today) today.value = data.today;
+      if (typeof data.warningDays === 'number') warningDays.value = data.warningDays;
     } catch (err: any) {
       error.value = normalizeErrorMessage(err);
     } finally {
