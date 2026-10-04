@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
+import PillButton from '~/components/ui/PillButton.vue';
 
 interface Props {
   modelValue: boolean;
